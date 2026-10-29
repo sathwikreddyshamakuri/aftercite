@@ -1,0 +1,46 @@
+{
+  "claims": [
+    {
+      "id": "C-101",
+      "claim": "Clients have 10 business days to upload intake documents.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "intake-window",
+      "evidence_quote": "Clients must upload requested documents within 10 business days of receiving the intake link."
+    },
+    {
+      "id": "C-102",
+      "claim": "Expenses exceeding $800 need a second review.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "expense-review",
+      "evidence_quote": "Expenses above $800 require a second review before the case can move to preparation."
+    },
+    {
+      "id": "C-103",
+      "claim": "PDF, PNG, and JPG are accepted upload formats.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "accepted-files",
+      "evidence_quote": "Accepted upload formats are PDF, PNG, and JPG."
+    },
+    {
+      "id": "C-104",
+      "claim": "A named case owner is required before handoff to preparation.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "handoff",
+      "evidence_quote": "A named case owner is required before an intake packet moves to preparation."
+    },
+    {
+      "id": "C-105",
+      "claim": "Supervising reviewers can approve documented exceptions.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "manual-override",
+      "evidence_quote": "Only a supervising reviewer can approve an exception to the missing-document policy."
+    },
+    {
+      "id": "C-106",
+      "claim": "All upload failures are resolved automatically without human review.",
+      "document_id": "aster-intake-playbook",
+      "section_id": "intake-window",
+      "evidence_quote": "All upload failures are resolved automatically without human review."
+    }
+  ]
+}

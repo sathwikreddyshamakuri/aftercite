@@ -1,0 +1,14 @@
+{
+  "documents": [
+    {
+      "id": "aster-intake-playbook",
+      "title": "Aster Desk Client Intake Playbook (fictional)",
+      "sections": {
+        "intake-window": "Clients must upload requested documents within 5 business days of receiving the intake link. An assigned specialist follows up on incomplete uploads.",
+        "expense-review": "Expenses above $650 require a second review before the case can move to preparation. An original receipt must be retained.",
+        "accepted-files": "Accepted upload formats are PDF, PNG, and JPG. Maximum file size is 15 MB per file.",
+        "handoff": "A named case owner is required before an intake packet moves to preparation. After the handoff, a specialist must ask for a second reviewer on cases flagged high risk."
+      }
+    }
+  ]
+}
