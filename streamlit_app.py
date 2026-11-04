@@ -137,6 +137,7 @@ claim_by_id = {item["id"]: item for item in visible}
 selected_id = st.selectbox(
     "Select a cited claim to inspect",
     [item["id"] for item in visible],
+    index=next((i for i, entry in enumerate(visible) if entry["id"] == "C-101"), 0),
     format_func=lambda cid: (
         f"{cid}  ·  {STATUS_LABELS[claim_by_id[cid]['status']]}  "
         f"·  {claim_by_id[cid]['claim']}"
