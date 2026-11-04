@@ -56,22 +56,29 @@ else:
 st.write(selected["reason"])
 st.caption(f"Source: {selected['source_title']} | Section: {selected['section_id']}")
 
-left, right = st.columns(2)
-with left:
-    st.write("**Before**")
+if selected["status"] == "BROKEN_BASELINE":
+    # This claim's evidence was missing even before the source was revised.
+    st.write("**Claim's original evidence quote**")
+    st.write(selected["evidence_quote"])
+    st.write("**What the original source actually says**")
     st.write(selected["previous_section"] or "Section not found")
-with right:
-    st.write("**After**")
-    st.write(selected["current_section"] or "Section not found")
+else:
+    left, right = st.columns(2)
+    with left:
+        st.write("**Before**")
+        st.write(selected["previous_section"] or "Section not found")
+    with right:
+        st.write("**After**")
+        st.write(selected["current_section"] or "Section not found")
 
-numbers = selected["numeric_signals"]
-if numbers["removed"] or numbers["added"]:
-    st.caption(
-        "Changed numbers: "
-        + ", ".join(numbers["removed"] or ["none"])
-        + " → "
-        + ", ".join(numbers["added"] or ["none"])
-    )
+    numbers = selected["numeric_signals"]
+    if numbers["removed"] or numbers["added"]:
+        st.caption(
+            "Changed numbers: "
+            + ", ".join(numbers["removed"] or ["none"])
+            + " → "
+            + ", ".join(numbers["added"] or ["none"])
+        )
 
 if "reviews" not in st.session_state:
     st.session_state.reviews = {}
