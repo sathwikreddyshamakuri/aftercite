@@ -30,7 +30,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-st.markdown(
+st.html(
     """
     <style>
       .block-container { max-width: 1200px; padding-top: 2rem; }
@@ -49,7 +49,6 @@ st.markdown(
       .muted { color: #64748b; font-size: .91rem; }
     </style>
     """,
-    unsafe_allow_html=True,
 )
 
 if "active_deadline" not in st.session_state:
@@ -99,7 +98,7 @@ new_docs["aster-intake-playbook"]["sections"]["intake-window"] = source.replace(
 report = analyze(old_docs, new_docs, claims)
 summary = report["summary"]
 
-st.markdown(
+st.html(
     """
     <div class="hero">
       <div class="eyebrow">CASE STUDY · AI ENGINEER (TAX)</div>
@@ -109,7 +108,6 @@ st.markdown(
       and keeps the final decision with a human reviewer.</p>
     </div>
     """,
-    unsafe_allow_html=True,
 )
 
 a, b, c = st.columns(3)
@@ -159,22 +157,20 @@ st.caption(
     f"Section: {item['section_id']}  |  Claim ID: {item['id']}"
 )
 st.markdown("**Original cited evidence**")
-st.code(item["evidence_quote"], language=None, wrap_lines=True)
+st.info(item["evidence_quote"], icon="📌")
 
 left, right = st.columns(2)
 before_text = item["previous_section"] or ""
 after_text = item["current_section"] or ""
 with left:
     st.markdown("#### Before · saved source")
-    st.markdown(
+    st.html(
         f'<div class="diffbox">{markup_diff(before_text, after_text, "old")}</div>',
-        unsafe_allow_html=True,
     )
 with right:
     st.markdown("#### After · revised source")
-    st.markdown(
+    st.html(
         f'<div class="diffbox">{markup_diff(before_text, after_text, "new")}</div>',
-        unsafe_allow_html=True,
     )
 
 signals = item["numeric_signals"]
