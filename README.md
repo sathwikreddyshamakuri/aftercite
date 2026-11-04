@@ -99,3 +99,45 @@ README.md                  This file
 ```
 
 All sample data are synthetic. No employer code or customer information was included. AI assistance was used to develop this exercise and is disclosed in the written case study.
+
+
+## Live browser demo (Streamlit)
+
+The browser interface is in `streamlit_app.py`; the original `aftercite.py` CLI and the existing tests remain unchanged.
+
+### Run the browser demo locally
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run streamlit_app.py
+```
+
+Streamlit opens a local URL (typically `http://localhost:8501`). The app loads the included fictional sample data, runs the same `read_sources`, `read_claims`, and `analyze` functions as the CLI, and displays reviewable results.
+
+### Deploy with Streamlit Community Cloud
+
+1. Open https://share.streamlit.io and sign in with GitHub.
+2. Choose **Create app** and **Deploy a public app from GitHub**.
+3. Select repository `sathwikreddyshamakuri/aftercite`, branch `main`, and entrypoint `streamlit_app.py`.
+4. Deploy and wait for Streamlit to show a running app, then open the URL in a private/incognito browser window to confirm public access.
+5. Share **the resulting live Streamlit URL**, not the GitHub source URL, with the reviewer.
+
+The repository includes `requirements.txt`. No credentials, secrets, or paid external APIs are required for the demo.
+
+### Quick demo walkthrough (2–3 minutes)
+
+1. **Problem (0:00–0:25):** An AI-generated claim can become stale when its cited policy is updated; the answer may still look credible.
+2. **Results (0:25–0:50):** Open the app, show 6 saved claims, with 5 flagged for review and 1 unchanged.
+3. **Evidence (0:50–1:35):** Choose **C-101**. The original policy says **10 business days**; the revised policy says **5 business days**. Show the highlighted evidence change and review reason.
+4. **Scenario (1:35–2:00):** In the sidebar select **7 business days**, then click **Analyze changes**. Reopen C-101 and show the updated comparison.
+5. **Human review (2:00–2:25):** Enter a reviewer label, choose **Needs follow-up**, add a brief note, and record it. Explain this review is session-only in the public demo.
+6. **Exports & limitations (2:25–2:50):** Download JSON/HTML, then explain this is conservative text-based change detection, **not** automatic tax-law validation.
+
+Record your real browser as you interact with the deployed application. Upload the actual screen recording to YouTube as **Unlisted** and test the viewer URL in a private browser window. Don't upload invented footage or claim that an unrecorded demo is live.
+
+### Hosting and privacy notes
+
+- All sample content is fictional; the app does not accept customer uploads.
+- The app does not persist review actions across visits or server restarts. Review notes exist only in the visitor's Streamlit session.
+- The existing command-line review log is a *separate local mechanism*, not a secure centralized audit record.
+- A changed quote or context warrants review; unchanged source text does not prove a claim is correct.
